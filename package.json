@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@magenta/image": "^0.2.1"
+  }
+}

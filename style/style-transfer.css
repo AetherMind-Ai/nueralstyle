@@ -1,325 +1,282 @@
-.scanning{
-  margin:auto;
-  position:relative;
-  width:100%;
-}
-.scanning .screen
-{
-  margin:auto;
-  width:100%;
-}
-.scanning em:before,  .scanning em:after, .scanning .screen:before,  .scanning .screen:after {
-  border-color: rgba(0, 0, 0, 0.8);
-  content: "";
-  position: absolute;
-  width: 19px;
-  height: 16px;
-  border-style: solid;
-  border-width: 0px;
-  z-index: 9999;
-}
-.scanning .screen:before {
-  left: 0;
-  top: 0;
-  border-left-width: 3px;
-  border-top-width: 3px;
-}
-.scanning .screen:after {
-  right: 0;
-  top: 0;
-  border-right-width: 3px;
-  border-top-width: 3px;
-}
-.scanning em:before {
-  left: 0;
-  bottom: 0;
-  border-left-width: 3px;
-  border-bottom-width: 3px;
-}
-.scanning em:after {
-  right: 0;
-  bottom: 0;
-  border-right-width: 3px;
-  border-bottom-width: 3px;
-}
-
-.scanning .scan
-{
-  width: 100%;
-  height: 15px;
-  background-color: rgba(20, 206, 97, 0.5);
-  position:absolute;
-  z-index:9999;
-  box-shadow:0px 0px 30px rgba(255,204,102,.5);
-  top: 0;
-}
-
-.inputfile {
-  width: 0.1px;
-  height: 0.1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
-}
-
-.inputfile + label {
-  width: 100%;
-  font-size: 1.25rem;
-  /* 20px */
-  font-weight: 700;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  cursor: pointer;
-  display: inline-block;
-  overflow: hidden;
-  padding: 0.625rem 1.25rem;
-  text-align: center;
+/* General Styles for Dark Mode */
+body {
+  font-family: 'Arial', sans-serif;
+  background: #181818;
+  color: #e0e0e0;
   margin: 0;
-  /* 10px 20px */
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.no-js .inputfile + label {
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1, h2 {
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-top: 20px;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-top: 30px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Section Headers and Topics */
+.section-title {
+  font-size: 1.4rem;
+  color: #00bcd4;
+  font-weight: 600;
+  margin-top: 40px;
+  text-transform: uppercase;
+  border-bottom: 2px solid #00bcd4;
+  padding-bottom: 10px;
+}
+
+input[type="file"] {
   display: none;
 }
 
-.inputfile:focus + label,
-.inputfile.has-focus + label {
-  outline: 1px dotted #000;
-  outline: -webkit-focus-ring-color auto 5px;
+label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: block;
+  cursor: pointer;
+  padding: 15px 25px;
+  background: linear-gradient(45deg, #6a11cb, #2575fc);
+  color: white;
+  border-radius: 8px;
+  text-align: center;
+  transition: background-color 0.3s;
 }
 
-.inputfile + label * {
-  /* pointer-events: none; */
-  /* in case of FastClick lib use */
+label:hover {
+  background: linear-gradient(45deg, #2575fc, #6a11cb);
 }
 
-.inputfile + label svg {
-  width: 1em;
-  height: 1em;
-  vertical-align: middle;
-  fill: currentColor;
-  margin-top: -0.25em;
-  /* 4px */
-  margin-right: 0.25em;
-  /* 4px */
+input[type="file"]:focus + label,
+input[type="file"]:active + label {
+  outline: none;
 }
 
-
-/* style red */
-
-.inputfile-red + label {
-  color: #f1e5e6;
-  background-color: #d3394c;
+/* Image Container */
+.imageContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
 }
 
-.inputfile-red:focus + label,
-.inputfile-red.has-focus + label,
-.inputfile-red + label:hover {
-  background-color: #722040;
+#contentImg, #styleImg {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-/* style blue */
-
-.inputfile-blue + label {
-  color: #f1e5e6;
-  background-color: #064ead;
-}
-  
-.inputfile-blue:focus + label,
-.inputfile-blue.has-focus + label,
-.inputfile-blue + label:hover {
-  background-color: #073168;
-}
-
-.fa-plus {
-    font-size: 2em;
-    color: green;
-}
-
-.btn-transfer {
-  background: #a0047e;
-  color: #f1e5e6;
-  font-weight: 700;
-  font-size: 1.25rem;
-  padding: 10px 30px;
-}
-
-.btn-transfer:hover {
-  color: #f1e5e6;
-  background: #460237;
-}
-
-#transfering {
-  font-size: 5em;
-  color: #a0047e;
-  margin-top: 10%;
-}
-
-.canvasContainer{
-  border: 1px dotted black;
- } 
-
- @media screen and (min-width: 768px) and (max-width: 992px) {
-  .fa-plus{
-      font-size: 2em;
-  }
-  .btn-transfer {
-      padding: 10px 10px;
-    }
-}
-@media screen and (min-width: 992px) {
-  .fa-plus{
-      font-size: 3em;
-  }
-}
-
+/* Arrow Animation */
 .arrowAnim {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.arrowAnim.top-to-bottom {
-  height : 50px;
+  margin: 20px 0;
 }
 
 .arrow {
-  width: 10px;
-  height: 10px;
-  border: 2.5px solid;
-  
+  width: 16px;
+  height: 16px;
+  border: 3px solid transparent;
+  border-top: 4px solid #fff;
+  border-left: 4px solid #fff;
+  transform: rotate(45deg);
 }
-.arrowAnim.right-to-left  .arrow {
-  transform: rotate(-45deg);
-  border-color: #064ead transparent transparent #064ead;
-}
-.arrowAnim.rightTop-to-leftBottom  .arrow {
-  transform: rotate(-90deg);
-  border-color: #064ead transparent transparent #064ead;
-}
-.arrowAnim.left-to-right  .arrow {
+
+.arrowAnim.left-to-right .arrow {
   transform: rotate(135deg);
-  border-color: #d3394c transparent transparent #d3394c;
 }
-.arrowAnim.leftTop-to-rightBottom  .arrow {
-  transform: rotate(180deg);
-  border-color: #d3394c transparent transparent #d3394c;
-}
-.arrowAnim.top-to-bottom  .arrow {
+
+.arrowAnim.top-to-bottom .arrow {
   transform: rotate(-135deg);
-  border-color: #d3394c transparent transparent #a0047e;
 }
 
-
-.arrowAnim.left-to-right .arrowSliding {
-  position: absolute;
-  -webkit-animation: slide-left-to-right 4s linear infinite; 
-          animation: slide-left-to-right 4s linear infinite;
-}
-.arrowAnim.leftTop-to-rightBottom .arrowSliding {
-  position: absolute;
-  -webkit-animation: slide-leftTop-to-rightBottom 4s linear infinite; 
-          animation: slide-leftTop-to-rightBottom 4s linear infinite;
-}
-.arrowAnim.right-to-left .arrowSliding {
-  position: absolute;
-  -webkit-animation: slide-right-to-left 4s linear infinite; 
-          animation: slide-right-to-left 4s linear infinite;
-}
-.arrowAnim.rightTop-to-leftBottom .arrowSliding {
-  position: absolute;
-  -webkit-animation: slide-rightTop-to-leftBottom 4s linear infinite; 
-          animation: slide-rightTop-to-leftBottom 4s linear infinite;
-}
-.arrowAnim.top-to-bottom .arrowSliding {
-  position: absolute;
-  -webkit-animation: slide-top-to-bottom 4s linear infinite; 
-          animation: slide-top-to-bottom 4s linear infinite;
+.arrowSliding {
+  animation: slide 4s infinite linear;
 }
 
-.arrowAnim.right-to-left .arrowSliding.delay1,
-.arrowAnim.left-to-right .arrowSliding.delay1,
-.arrowAnim.leftTop-to-rightBottom .arrowSliding.delay1, 
-.arrowAnim.rightTop-to-leftBottom .arrowSliding.delay1,
-.arrowAnim.top-to-bottom .arrowSliding.delay1 {
-  -webkit-animation-delay: 1s; 
-    animation-delay: 1s;
-}
-.arrowAnim.right-to-left .arrowSliding.delay2,
-.arrowAnim.left-to-right .arrowSliding.delay2,
-.arrowAnim.leftTop-to-rightBottom .arrowSliding.delay2, 
-.arrowAnim.rightTop-to-leftBottom .arrowSliding.delay2,
-.arrowAnim.top-to-bottom .arrowSliding.delay2 {
-  -webkit-animation-delay: 2s; 
-    animation-delay: 2s;
-}
-.arrowAnim.right-to-left .arrowSliding.delay3,
-.arrowAnim.left-to-right .arrowSliding.delay3,
-.arrowAnim.leftTop-to-rightBottom .arrowSliding.delay3, 
-.arrowAnim.rightTop-to-leftBottom .arrowSliding.delay3,
-.arrowAnim.top-to-bottom .arrowSliding.delay3 {
-  -webkit-animation-delay: 3s; 
-    animation-delay: 3s;
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
 
-@-webkit-keyframes slide-right-to-left {
-    0% { opacity:0; transform: translateX(5vw); }	
-   20% { opacity:1; transform: translateX(3vw); }	
-   80% { opacity:1; transform: translateX(-3vw); }	
-  100% { opacity:0; transform: translateX(-5vw); }	
+/* Scanning Effect */
+.scanning {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100%;
 }
-@keyframes slide-right-to-left {
-    0% { opacity:0; transform: translateX(5vw); }	
-   20% { opacity:1; transform: translateX(3vw); }	
-   80% { opacity:1; transform: translateX(-3vw); }	
-  100% { opacity:0; transform: translateX(-5vw); }	
+
+.scan {
+  width: 100%;
+  height: 15px;
+  background: rgba(20, 206, 97, 0.5);
+  position: absolute;
+  top: 0;
+  animation: scan 3s infinite alternate;
 }
-@-webkit-keyframes slide-rightTop-to-leftBottom {
-    0% { opacity:0; transform: translateX(5vw) translateY(5vw); }	
-   20% { opacity:1; transform: translateX(3vw) translateY(3vw); }	
-   80% { opacity:1; transform: translateX(-3vw) translateY(-3vw); }	
-  100% { opacity:0; transform: translateX(-5vw) translateY(-5vw); }	
+
+@keyframes scan {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 100%;
+  }
 }
-@keyframes slide-rightTop-to-leftBottom {
-    0% { opacity:0; transform: translateX(5vw) translateY(-5vw); }	
-   20% { opacity:1; transform: translateX(3vw) translateY(-3vw); }	
-   80% { opacity:1; transform: translateX(-3vw) translateY(3vw); }	
-  100% { opacity:0; transform: translateX(-5vw) translateY(5vw); }	
+
+/* Button Styles */
+.btn-transfer {
+  background: linear-gradient(45deg, #d0047e, #9e0080);
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
-@-webkit-keyframes slide-left-to-right {
-    0% { opacity:0; transform: translateX(-5vw); }	
-   20% { opacity:1; transform: translateX(-3vw); }	
-   80% { opacity:1; transform: translateX(3vw); }	
-  100% { opacity:0; transform: translateX(5vw); }	
+
+.btn-transfer:hover {
+  background: linear-gradient(45deg, #9e0080, #d0047e);
+  transform: translateY(-3px);
 }
-@keyframes slide-left-to-right {
-    0% { opacity:0; transform: translateX(-5vw); }	
-   20% { opacity:1; transform: translateX(-3vw); }	
-   80% { opacity:1; transform: translateX(3vw); }	
-  100% { opacity:0; transform: translateX(5vw); }		
+
+.btn-transfer:active {
+  transform: translateY(2px);
 }
-@-webkit-keyframes slide-leftTop-to-rightBottom {
-   0% { opacity:0; transform: translateX(-5vw) translateY(-5vw); }	
-  20% { opacity:1; transform: translateX(-3vw) translateY(-3vw); }	
-  80% { opacity:1; transform: translateX(3vw) translateY(3vw); }	
- 100% { opacity:0; transform: translateX(5vw) translateY(5vw); }	
+
+/* Spinner Style */
+#transfering {
+  font-size: 3rem;
+  color: #d0047e;
+  margin-top: 10%;
 }
-@keyframes slide-leftTop-to-rightBottom {
-   0% { opacity:0; transform: translateX(-5vw) translateY(-5vw); }	
-  20% { opacity:1; transform: translateX(-3vw) translateY(-3vw); }	
-  80% { opacity:1; transform: translateX(3vw) translateY(3vw); }	
- 100% { opacity:0; transform: translateX(5vw) translateY(5vw); }	
+
+/* Canvas Container */
+.canvasContainer {
+  margin-top: 20px;
+  text-align: center;
 }
-@-webkit-keyframes slide-top-to-bottom {
-   0% { opacity:0; transform: translateY(-40px); }	
-  20% { opacity:1; transform: translateY(-30px); }	
-  80% { opacity:1; transform: translateY(10px); }	
- 100% { opacity:0; transform: translateY(20px); }	
+
+#stylized {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
 }
-  @keyframes slide-top-to-bottom {
-   0% { opacity:0; transform: translateY(-40px); }	
-  20% { opacity:1; transform: translateY(-30px); }	
-  80% { opacity:1; transform: translateY(10px); }	
- 100% { opacity:0; transform: translateY(20px); }	
+
+/* Mobile-First Responsive Layout */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .section-title {
+    font-size: 1.2rem;
+  }
+
+  .imageContainer {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .btn-transfer {
+    padding: 12px 18px;
+    font-size: 1rem;
+  }
+
+  .arrowAnim {
+    width: 100%;
+    margin-top: 15px;
+  }
+}
+
+/* Tablet and Large Mobile (480px and smaller) */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .btn-transfer {
+    padding: 10px 15px;
+    font-size: 1rem;
+  }
+
+  .imageContainer {
+    display: block;
+    text-align: center;
+  }
+
+  .arrowAnim {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .scan {
+    height: 10px;
+  }
+
+  #transfering {
+    font-size: 2rem;
+  }
+}
+
+/* Style for Input Labels */
+input[type="file"].inputfile-red + label {
+  background-color: #f44336;
+}
+
+input[type="file"].inputfile-blue + label {
+  background-color: #2196F3;
+}
+
+/* Hover/Focus Transitions */
+input[type="file"].inputfile-red + label:hover,
+input[type="file"].inputfile-blue + label:hover {
+  background-color: #ff5722;
+}
+
+input[type="file"].inputfile-red + label:focus,
+input[type="file"].inputfile-blue + label:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
